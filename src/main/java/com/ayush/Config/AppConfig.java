@@ -40,12 +40,14 @@ public class AppConfig {
                 CorsConfiguration cfg = new CorsConfiguration();
                 cfg.setAllowedOrigins(Arrays.asList(
                         "http://localhost:3000",
-                        "https://ayush-foodordering.vercel.app/"/*Yaha wo sb frontend url's aayengi, jaha se hum backend access krna chahte hain... */
+                        "https://ayush-foodordering.vercel.app"/*Yaha wo sb frontend url's aayengi, jaha se hum backend access krna chahte hain... */
                 )); /* From this... frontEnd url can connect with our backend... */
 
-                cfg.setAllowedMethods(Collections.singletonList("*"));
+//                cfg.setAllowedMethods(Collections.singletonList("*"));
+                cfg.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
                 cfg.setAllowCredentials(true);
-                cfg.setAllowedHeaders(Collections.singletonList("*"));
+//                cfg.setAllowedHeaders(Collections.singletonList("*"));
+                cfg.setAllowedHeaders(Arrays.asList("Authorization", "Content-Type", "Accept"));
                 cfg.setExposedHeaders(Arrays.asList("Authorization"));
                 cfg.setMaxAge(3600L);
                 return cfg;
